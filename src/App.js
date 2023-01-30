@@ -15,6 +15,14 @@ class App extends Component {
     return this.setState({ [name]: this.state[name] + 1})
   }
 
+  countTotalFeedback = () => {
+    return Object.values(this.state).reduce((acc, item) => (acc += item), 0);
+  }
+
+  positivePercentage = () => {
+    return ((100/this.countTotalFeedback())*this.state.good)
+  }
+
 
   render () {
     const options = Object.keys(this.state);
@@ -22,10 +30,12 @@ class App extends Component {
       <div className="App">
         <FeedbackOption options={options}
         onLeaveFeedback={this.onLeaveFeedback}/>
-        <Statistics options={options}
-        // good={this.state.good}
-        // neutral={this.state.neutral}
-        // bad={this.state.bad}
+        <Statistics
+        good={this.state.good}
+        neutral={this.state.neutral}
+        bad={this.state.bad}
+        total={this.countTotalFeedback()}
+        positiveFeedback={this.positivePercentage()}
         />
       </div>
     );
