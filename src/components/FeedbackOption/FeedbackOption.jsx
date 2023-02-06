@@ -3,7 +3,7 @@ import s from './FeedbackOption.module.css';
 const FeedbackOption = ({options, onLeaveFeedback}) => {
     return (
         <div>
-            <h2>Feedback options</h2>
+            {/* <h2>Feedback options</h2> */}
 
             {options.map(option => {
                 return (
