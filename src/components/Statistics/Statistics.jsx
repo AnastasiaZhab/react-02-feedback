@@ -1,13 +1,13 @@
+import s from './Statistics.module.css';
+
 const Statistics = ({good, neutral, bad, total, positiveFeedback}) => {
     return (
-        <div>
-            {/* <h2>Statistics</h2> */}
-
-            <p>good: {good}</p>
-            <p>neutral: {neutral}</p>
-            <p>bad: {bad}</p>
-            <p>Total: {total}</p>
-            <p>Positive feedback: {Math.round(positiveFeedback)} %</p>
+        <div className={s.div}>
+            <span>good: {good}</span>
+            <span>neutral: {neutral}</span>
+            <span>bad: {bad}</span>
+            <span className={s.total}>Total: {total}</span>
+            <span className={s.feedback}>Positive feedback: {Math.round(positiveFeedback)} %</span>
     
             {/* {options.map(option => {
                 return (
